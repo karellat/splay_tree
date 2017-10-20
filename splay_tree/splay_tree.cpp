@@ -225,31 +225,32 @@ node* splay_tree::insert(const int value)
 
 void splay_tree::splay(node* x)
 {
-	if (x->parent == nullptr)
-		return;
-
-	else if (x->parent->parent == nullptr)
+	
+	while (x->parent != nullptr)
 	{
-		if (x->parent->left == x)
-			this->root = l_rotate(x);
-		else
-			this->root = r_rotate(x);
-	}
-	else
-	{
-		if (x->parent->left == x)
+		if (x->parent->parent == nullptr)
 		{
-			if (x->parent->parent->left == x->parent)
-				this->root = ll_rotate(x);
+			if (x->parent->left == x)
+				this->root = l_rotate(x);
 			else
-				this->root = rl_rotate(x);
+				this->root = r_rotate(x);
 		}
 		else
 		{
-			if (x->parent->parent->right == x->parent)
-				this->root = rr_rotate(x);
+			if (x->parent->left == x)
+			{
+				if (x->parent->parent->left == x->parent)
+					this->root = ll_rotate(x);
+				else
+					this->root = rl_rotate(x);
+			}
 			else
-				this->root = lr_rotate(x);
+			{
+				if (x->parent->parent->right == x->parent)
+					this->root = rr_rotate(x);
+				else
+					this->root = lr_rotate(x);
+			}
 		}
 	}
 

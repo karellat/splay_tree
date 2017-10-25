@@ -21,7 +21,7 @@ int main(int argc, const char * argv[])
 			clock_t begin = clock();
 			read_file(argv[2]);
 			clock_t end = clock();
-			std::cout << "Reading file: " << argv[t] << " finnished. Time: " << ((end-begin)/CLOCKS_PER_SEC)/1000 << " ms" << std::endl;
+			std::cout << "Reading file: " << argv[t] << " finnished. Time: " << ((end-begin)/CLOCKS_PER_SEC)/1000.0 << " ms" << std::endl;
 		}
 	}
 

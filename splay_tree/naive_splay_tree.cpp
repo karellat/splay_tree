@@ -2,6 +2,7 @@
 
 node* naive_splay_tree::insert(int value)
 {
+
 	if (root == nullptr)
 	{
 		root = addValue(nullptr, value);
@@ -26,15 +27,18 @@ node* naive_splay_tree::insert(int value)
 
 	splay(n);
 
+
 	return n;
 }
 
 node* naive_splay_tree::find(int value)
 {
+	size_t depth = 0;
 	node * n = root;
 
 	while (n != nullptr && n->value != value)
 	{
+		depth++; 
 		if (n->value > value)
 			n = n->left;
 		else

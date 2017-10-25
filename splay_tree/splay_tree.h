@@ -49,12 +49,16 @@ struct splay_tree
 	node * insert(int value);
 	node * find(int value);
 	void splay(node * x);
+	double mean_depth_find = 0; 
+
 private:
 	size_t max_size;
 	size_t nodes_free_index = 0;
 	node* nodes;
+
+	size_t number_of_finds = 0; 
 	
-	inline node* addValue(node * parent, int value)
+	inline node* add_value(node * parent, int value)
 	{
 		node * o = &nodes[nodes_free_index];
 		o->parent = parent; 
@@ -63,6 +67,11 @@ private:
 		o->value = value; 
 		nodes_free_index++;
 		return o;
+	}
+	inline void add_find_depth(size_t depth)
+	{
+		mean_depth_find = mean_depth_find * (number_of_finds / (number_of_finds + 1)) + (depth / (number_of_finds + 1)); 
+		number_of_finds++; 
 	}
 };
 

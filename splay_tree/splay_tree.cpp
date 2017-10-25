@@ -179,9 +179,10 @@ node* splay_tree::rl_rotate(node* x) const
 node* splay_tree::find(const int value)
 {
 	node * n = root;
-
+	size_t depth = 0; 
 	while (n != nullptr && n->value != value)
 	{
+		depth++; 
 		if (n->value > value)
 			n = n->left;
 		else
@@ -191,6 +192,8 @@ node* splay_tree::find(const int value)
 	if (n != nullptr)
 		splay(n);
 
+	add_find_depth(depth);
+
 	return n;
 }
 
@@ -198,7 +201,7 @@ node* splay_tree::insert(const int value)
 {
 	if (root == nullptr)
 	{
-		root = addValue(nullptr, value);
+		root = add_value(nullptr, value);
 	}
 	node * n = root;
 
@@ -207,13 +210,13 @@ node* splay_tree::insert(const int value)
 		if (n->value > value)
 		{
 			if (n->left == nullptr)
-				n->left = addValue(n, value);
+				n->left = add_value(n, value);
 			n = n->left;
 		}
 		else
 		{
 			if (n->right == nullptr)
-				n->right = addValue(n, value);
+				n->right = add_value(n, value);
 			n = n->right; 
 		}
 	}

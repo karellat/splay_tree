@@ -14,9 +14,9 @@ struct nodes_array
 public:
 	nodes_array(size_t max_size) : nodes(new node[max_size]),max_size(max_size) {}
 	~nodes_array() { delete[] nodes; }
+	size_t max_size;
 private:
 	node * nodes;
-	size_t max_size; 
 	size_t free_index = 0;
 	node * Add(int value, node * parent)
 	{
@@ -51,12 +51,13 @@ struct splay_tree
 	void splay(node * x);
 	double mean_depth_find()
 	{
+		if (number_of_finds == 0) return 0;
 		return sum / (double) number_of_finds;
 	}
+	size_t max_size;
 
 private:
 
-	size_t max_size;
 	size_t nodes_free_index = 0;
 	node* nodes;
 
@@ -78,6 +79,7 @@ private:
 		sum += depth;
 		number_of_finds++; 
 	}
+
 };
 
 

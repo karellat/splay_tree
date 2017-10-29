@@ -48,6 +48,7 @@ node* naive_splay_tree::find(int value)
 	if (n != nullptr)
 		splay(n);
 
+	add_find_depth(depth); 
 	return n;
 }
 

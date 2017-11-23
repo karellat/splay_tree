@@ -1,6 +1,6 @@
 #include "splay_tree.h"
 
-
+using namespace std;
 node* splay_tree::l_rotate(node* x) const
 {
 	node * y = x->parent;

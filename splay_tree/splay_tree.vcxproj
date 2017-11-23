@@ -112,7 +112,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="naive_splay_tree.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="splay_tree.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>

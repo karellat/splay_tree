@@ -1,6 +1,8 @@
 ﻿#pragma once
 #include "splay_tree.h"
 
+using namespace std;
+
 struct naive_splay_tree
 {
 public:

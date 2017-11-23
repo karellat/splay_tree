@@ -45,7 +45,7 @@ node* r_tree()
 
 	return r;
 }
-
+using namespace std;
 void test_l()
 {
 	splay_tree *  t = new splay_tree();

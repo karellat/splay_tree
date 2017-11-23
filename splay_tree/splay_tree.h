@@ -1,6 +1,8 @@
 #pragma once
 #include <cstdint>
 
+using namespace std;
+
 struct node {
 	node * parent;
 	node * left;

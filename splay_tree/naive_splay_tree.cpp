@@ -1,5 +1,5 @@
 ﻿#include "naive_splay_tree.h"
-
+using namespace std;
 node* naive_splay_tree::insert(int value)
 {
 
